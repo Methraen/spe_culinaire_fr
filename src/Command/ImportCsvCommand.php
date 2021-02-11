@@ -14,7 +14,7 @@ use App\Entity\Tag;
 
 class ImportCsvCommand extends Command
 {
-    protected static $defaultName = 'app:import:specialities';
+    protected static $defaultName = 'app:import:specialites';
     private $container;
 
     public function __construct(ContainerInterface $container)
