@@ -19,32 +19,27 @@ class SpecialiteRepository extends ServiceEntityRepository
         parent::__construct($registry, Specialite::class);
     }
 
-    // /**
-    //  * @return Specialite[] Returns an array of Specialite objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Specialite[] Returns an array of Specialite objects
+     */
+    public function findByLibelle($value)
     {
         return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('s.libelle LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
+            ->orderBy('s.libelle', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Specialite
+    public function findOneByLibelle($value): ?Specialite
     {
         return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
+            ->andWhere('s.libelle = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
 }
