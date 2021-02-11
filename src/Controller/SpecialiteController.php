@@ -41,9 +41,9 @@ class SpecialiteController extends AbstractController
                 $fileName = $form['libelle']->getData();
                 $fileName = strtolower($fileName);
                 $fileName = str_replace(' ', '-', $fileName);
-                $specialite->setImage($fileName);
+                $specialite->setImage($fileName.'.'.$file->guessExtension());
 
-                $file->move('assets/images/', $fileName.'.'.$file->guessExtension());
+                $file->move('images/', $specialite->getImage());
             }
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -83,15 +83,15 @@ class SpecialiteController extends AbstractController
             if(!is_null($file) || !empty($file)) {
                 $fileName = $specialite->getImage();
                 if(!is_null($fileName) || !empty($fileName)) {
-                    if(file_exists('assets/images/'.$fileName)) unlink('assets/images/'.$fileName);
+                    if(file_exists('images/'.$fileName)) unlink('images/'.$fileName);
                 }
                 
                 $fileName = $form['libelle']->getData();
                 $fileName = strtolower($fileName);
                 $fileName = str_replace(' ', '-', $fileName);
-                $specialite->setImage($fileName);
+                $specialite->setImage($fileName.'.'.$file->guessExtension());
 
-                $file->move('assets/images/', $fileName.'.'.$file->guessExtension());
+                $file->move('images/', $specialite->getImage());
             }
 
             $this->getDoctrine()->getManager()->flush();
