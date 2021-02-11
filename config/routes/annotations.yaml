@@ -5,3 +5,10 @@ controllers:
 kernel:
     resource: ../../src/Kernel.php
     type: annotation
+
+home_fallback:
+    path: /
+    controller: App\Controller\MainController::index
+    defaults:
+        path: /specialites.vlabs
+        permanent: true

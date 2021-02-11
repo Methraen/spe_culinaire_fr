@@ -54,9 +54,9 @@ class ApiController extends AbstractController
     }
 
     /**
-     * @Route("/some_specialites/{libelle}", name="apiSomeSpecialites")
+     * @Route("/specialites_by_libelle/{libelle}", name="apiSomeSpecialites")
      */
-    public function getSomeSpecialites(SpecialiteRepository $specialiteRepository, String $libelle): Response
+    public function getSpecialitesByLibelle(SpecialiteRepository $specialiteRepository, String $libelle): Response
     {
         $specialites = $specialiteRepository->findByLibelle($libelle);
 

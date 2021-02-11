@@ -1,0 +1,38 @@
+/* MAIN PAGE */
+
+.example-wrapper {
+    margin: 1em auto;
+    max-width: 800px;
+    width: 95%;
+    font: 18px/1.5 sans-serif;
+    text-align: center;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h-fill {
+    width: 100%;
+}
+
+.specialite-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }

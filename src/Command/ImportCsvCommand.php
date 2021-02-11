@@ -51,17 +51,9 @@ class ImportCsvCommand extends Command
             '',
         ]);
 
-        // supprime les entrées existantes dans la bdd
+        // supprime les entrées existantes dans la bdd, ne reset pas l'auto increment de la bdd !
         $em->createQuery('DELETE App:Specialite p')->execute();
         $em->createQuery('DELETE App:Tag p')->execute();
-
-        // $em
-        //     ->createNativeQuery("ALTER TABLE specialite AUTO_INCREMENT = 1", new ResultSetMapping())
-        //     ->execute();
-
-        // $em
-        //     ->createNativeQuery("ALTER TABLE tag AUTO_INCREMENT = 1", new ResultSetMapping())
-        //     ->execute();
 
         $handle = fopen($importPath, "r");
         if ($handle) {
@@ -76,6 +68,13 @@ class ImportCsvCommand extends Command
                 $specialite = new Specialite();
                 $specialite->setLibelle($label);
                 $specialite->setImage($picture);
+
+                $source = trim($picturePath.'\\'.$picture);
+                $destination = trim('public/images/'.$picture);
+                if (!copy($source, $destination)) {
+                    $output->writeln('La copie du fichier a échoué !');
+                    return Command::FAILURE;
+                }
                 
                 $em->persist($specialite);
 
