@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}spe_culinaire_fr{% endblock %}
+
+{% block body %}
+<div class='example-wrapper'>
+    <h1>Spécialités Culinaires Françaises</h1>
+    
+    <div class='content-wrapper'>
+        <div class='h-fill'>
+            <div id='liste-specialites'></div>
+        </div>
+
+        <div class='h-fill form-wrapper'>
+            <h3>Filtrer :</h3>
+            <div>
+                <input id='input-text' type='text'/>
+                <input id='btn-submit' type='submit'/>
+            </div>
+            <div id='liste-tags'></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
